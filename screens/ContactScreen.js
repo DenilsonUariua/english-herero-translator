@@ -1,18 +1,11 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  Button,
-  Image,
-  Dimensions,
-  Platform,
-} from "react-native";
+import { View, Image, Dimensions, Platform } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { themeColors } from "../theme";
 import { BellIcon } from "react-native-heroicons/outline";
 import { BookOpenIcon } from "react-native-heroicons/solid";
+import { Button, TextInput, Text } from "react-native-paper";
 
 const { width, height } = Dimensions.get("window");
 const ios = Platform.OS == "ios";
@@ -64,34 +57,58 @@ const ContactScreen = () => {
           <BellIcon size="27" color="black" />
         </View>
         <View
-          className={`mt-8 p-5 flex-column  bg-[#e6e6e6]`}
-          style={{ display: "flex", borderRadius: 20, alignItems: "center", justifyContent: "center", height: height * 0.7 }}
+          className={`m-8 p-5 flex-column  bg-[#e6e6e6]`}
+          style={{
+            display: "flex",
+            borderRadius: 20,
+            alignItems: "center",
+            justifyContent: "center",
+            height: height * 0.7,
+          }}
         >
-          <Text style={{ fontWeight: "bold" }}>Contact Us</Text>
+          <Text
+            style={{ fontWeight: "bold", color: themeColors.bgLight }}
+            variant="titleLarge"
+          >
+            Contact Us
+          </Text>
           <TextInput
-            className="rounded-full p-2"
+            className="m-2"
+            activeOutlineColor={themeColors.bgLight}
+            mode="outlined"
             placeholder="Name"
             value={name}
             onChangeText={handleNameChange}
+            style={{ width: width * 0.8 }}
           />
           <TextInput
-            className="rounded-full p-2"
+            className="m-2"
+            activeOutlineColor={themeColors.bgLight}
+            mode="outlined"
             placeholder="Email"
             value={email}
             onChangeText={handleEmailChange}
+            style={{ width: width * 0.8 }}
           />
           <TextInput
+            className="m-2"
+            mode="outlined"
+            activeOutlineColor={themeColors.bgLight}
             placeholder="Message"
             value={message}
             onChangeText={handleMessageChange}
-            multiline
+            style={{ width: width * 0.8, borderRadius: 10 }}
+            multiline={true}
+            numberOfLines={5}
           />
           <Button
-            title="Submit"
+            textColor="white"
             onPress={handleSubmit}
-            color={themeColors.bgLight}
-            style={{ borderRadius: 20 }}
-          />
+            buttonColor={themeColors.bgLight}
+            style={{ borderRadius: 20, width: width * 0.4 }}
+          >
+            Submit
+          </Button>
         </View>
       </SafeAreaView>
     </View>
