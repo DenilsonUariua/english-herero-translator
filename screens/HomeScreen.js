@@ -19,8 +19,8 @@ export default function HomeScreen() {
       <StatusBar />
       <Image
         source={require("../assets/images/beansBackground1.png")}
-        style={{ height: height * 0.2 }}
-        className="w-full absolute -top-5 opacity-10"
+        style={{ height: height * 0.3 }}
+        className="w-full absolute  opacity-10"
       />
       <SafeAreaView className={ios ? "-mb-8" : ""}>
         {/* avatar and bell icon */}
